@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type MyNewType int64
 type MyNewTypeSlice []MyNewType

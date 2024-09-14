@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	a := make([]int64, 1000)
+	a := make([]int64, 1000, 2000)
 	b := make([]int64, 1000)
 
 	copyA := intCopy(a)
@@ -14,6 +14,19 @@ func main() {
 
 	fmt.Println(reflect.DeepEqual(a, copyA))
 	fmt.Println(reflect.DeepEqual(b, copyB))
+
+	c := make([]int64, 0, 1000)
+	fmt.Println(len(c))
+	fmt.Println(cap(c))
+
+	c = append(c, 1)
+	fmt.Println(c)
+	
+	s := make([]int64, 5, 10)
+	t := s[2:5]
+
+	fmt.Println(cap(t))
+	fmt.Println(len(t))
 }
 
 func intCopy(source []int64) []int64 {

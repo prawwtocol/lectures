@@ -49,7 +49,7 @@ func (m *MySliceHeader) Pop() int64 {
 
 func main() {
 	s := &MySliceHeader{
-		data:     myMalloc(100),
+		data:     myMalloc1(100),
 		length:   0,
 		capacity: 100,
 	}
@@ -61,5 +61,8 @@ func main() {
 	fmt.Println(s.Pop())
 	fmt.Println(s.Pop())
 	fmt.Println(s.Pop())
+}
 
+func myMalloc1(size int) *byte {
+	return unsafe.SliceData(make([]byte, size))
 }

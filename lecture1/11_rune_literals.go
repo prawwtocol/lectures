@@ -7,7 +7,8 @@ import (
 )
 
 func main() {
-	printRune("a🙂🙃🌚😑😐z")
+	wrongPrintRune("a🙂🙃🌚😑😐z") // ð
+	printRune("a🙂🙃🌚😑😐z")      // 🙂
 	fmt.Println(containsRune("🙂", '🙂'))
 	fmt.Println(isLetter('L'))
 }
