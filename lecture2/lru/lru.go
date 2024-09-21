@@ -82,12 +82,12 @@ func (c *cacheImpl[K, V]) getNodeFromElement(element *list.Element) *node[K, V] 
 
 // Get O(1)
 func (c *cacheImpl[K, V]) Get(key K) V {
-	if link, ok := c.keyToElement[key]; !ok {
-		return c.defaultValue
-	} else {
+	if link, ok := c.keyToElement[key]; ok {
 		c.linkedList.MoveToFront(link)
 		return c.getNodeFromElement(link).value
 	}
+
+	return c.defaultValue
 }
 
 // Size O(1)
